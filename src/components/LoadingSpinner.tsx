@@ -1,0 +1,26 @@
+'use client';
+
+import { ReactNode } from 'react';
+
+interface LoadingSpinnerProps {
+    text?: string;
+    fullScreen?: boolean;
+}
+
+export default function LoadingSpinner({
+    text = 'Cargando...',
+    fullScreen = false
+}: LoadingSpinnerProps): ReactNode {
+    if (fullScreen) {
+        return (
+            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center z-50">
+                <div className="w-16 h-16 border-4 border-white/10 border-t-sky-500 rounded-full animate-spin mb-6"></div>
+                <p className="text-gray-300 text-base">{text}</p>
+            </div>
+        );
+    }
+
+    return (
+        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+    );
+}
