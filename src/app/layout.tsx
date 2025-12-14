@@ -3,9 +3,12 @@ import type { ReactNode } from 'react';
 import '@/styles/globals.css';
 
 export const metadata: Metadata = {
-    title: 'Recuperar Contraseña | Tu Juego',
+    title: 'Metaverso Restablecimiento',
     description: 'Restablece tu contraseña de manera segura para acceder a tu cuenta',
     robots: 'noindex, nofollow',
+    icons: {
+        icon: '/images/logo-metaverso.png',
+    },
 };
 
 interface RootLayoutProps {

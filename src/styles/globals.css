@@ -1,7 +1,188 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
-/* Base styles */
+/* ============================================
+   PALETA DE COLORES - METAVERSO TECNM
+   ============================================ */
+
+:root {
+  /* Colores primarios TecNM */
+  --tecnm-dark: #0a1628;
+  --tecnm-deep: #0d2847;
+  --tecnm-primary: #1e5799;
+  --tecnm-bright: #2989d8;
+  --tecnm-accent: #7db9e8;
+  --tecnm-light: #a8d4f0;
+  
+  /* Colores para nodos LED */
+  --tecnm-led: #00d4ff;
+  --tecnm-led-glow: rgba(0, 212, 255, 0.6);
+  
+  /* Colores de estado */
+  --tecnm-success: #10b981;
+  --tecnm-error: #ef4444;
+  --tecnm-warning: #f59e0b;
+  --tecnm-info: #3b82f6;
+  
+  /* Neutros */
+  --tecnm-white: #ffffff;
+  --tecnm-gray-100: #f3f4f6;
+  --tecnm-gray-300: #d1d5db;
+  --tecnm-gray-400: #9ca3af;
+  --tecnm-gray-500: #6b7280;
+  
+  /* Transparencias */
+  --tecnm-glass: rgba(13, 40, 71, 0.8);
+  --tecnm-glass-light: rgba(30, 87, 153, 0.2);
+  --tecnm-glass-border: rgba(125, 185, 232, 0.3);
+}
+
+/* ============================================
+   ESTILOS BASE
+   ============================================ */
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--tecnm-dark) 0%, var(--tecnm-deep) 50%, var(--tecnm-dark) 100%);
+  min-height: 100vh;
+}
+
+/* ============================================
+   CLASES UTILITARIAS PERSONALIZADAS
+   ============================================ */
+
+/* Fondos */
+.bg-tecnm-gradient {
+  background: linear-gradient(135deg, var(--tecnm-dark) 0%, var(--tecnm-deep) 50%, var(--tecnm-dark) 100%);
+}
+
+.bg-tecnm-card {
+  background: var(--tecnm-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--tecnm-glass-border);
+}
+
+.bg-tecnm-button {
+  background: linear-gradient(135deg, var(--tecnm-primary) 0%, var(--tecnm-bright) 100%);
+}
+
+.bg-tecnm-button:hover {
+  background: linear-gradient(135deg, var(--tecnm-bright) 0%, var(--tecnm-accent) 100%);
+}
+
+/* Textos */
+.text-tecnm-primary {
+  color: var(--tecnm-bright);
+}
+
+.text-tecnm-accent {
+  color: var(--tecnm-accent);
+}
+
+.text-tecnm-muted {
+  color: var(--tecnm-gray-400);
+}
+
+/* Bordes */
+.border-tecnm {
+  border-color: var(--tecnm-glass-border);
+}
+
+.border-tecnm-bright {
+  border-color: var(--tecnm-bright);
+}
+
+/* Sombras con brillo TecNM */
+.shadow-tecnm {
+  box-shadow: 0 0 30px rgba(41, 137, 216, 0.3),
+              0 0 60px rgba(30, 87, 153, 0.2);
+}
+
+.shadow-tecnm-glow {
+  box-shadow: 0 0 20px rgba(125, 185, 232, 0.4),
+              0 0 40px rgba(41, 137, 216, 0.3);
+}
+
+/* Efectos de brillo animado */
+.glow-tecnm {
+  animation: tecnm-pulse 3s ease-in-out infinite;
+}
+
+@keyframes tecnm-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(41, 137, 216, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(125, 185, 232, 0.5);
+  }
+}
+
+/* Animación de flotación para el Xoli */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Animación de brillo LED para las líneas */
+@keyframes led-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px var(--tecnm-led));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 8px var(--tecnm-led));
+  }
+}
+
+.animate-led {
+  animation: led-pulse 2s ease-in-out infinite;
+}
+
+/* Input styles */
+.input-tecnm {
+  background: rgba(10, 22, 40, 0.6);
+  border: 1px solid var(--tecnm-glass-border);
+  color: var(--tecnm-white);
+  transition: all 0.2s ease;
+}
+
+.input-tecnm:focus {
+  border-color: var(--tecnm-bright);
+  box-shadow: 0 0 0 3px rgba(41, 137, 216, 0.2);
+  background: rgba(10, 22, 40, 0.8);
+}
+
+.input-tecnm::placeholder {
+  color: var(--tecnm-gray-500);
+}
+
+/* Estados de error */
+.input-tecnm-error {
+  border-color: var(--tecnm-error);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Estados de éxito */
+.bg-tecnm-success {
+  background: linear-gradient(135deg, var(--tecnm-success) 0%, #059669 100%);
+}
+
+/* Borde superior brillante para cards */
+.border-top-glow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--tecnm-accent), transparent);
 }
