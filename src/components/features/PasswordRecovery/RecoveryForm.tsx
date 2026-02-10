@@ -48,7 +48,7 @@ export default function RecoveryForm({
                             ? 'input-tecnm-error border border-[var(--tecnm-error)]'
                             : 'input-tecnm'
                         }`}
-                    placeholder="tu@email.com"
+                    placeholder="user@email.com"
                     value={email}
                     onChange={onEmailChange}
                     autoComplete="email"
