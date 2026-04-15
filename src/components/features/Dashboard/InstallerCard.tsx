@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiShieldCheck, HiArrowDownTray } from 'react-icons/hi2';
+import { HiShieldCheck, HiArrowDownTray, HiRocketLaunch } from 'react-icons/hi2';
 
 export default function InstallerCard() {
     return (
@@ -15,6 +15,11 @@ export default function InstallerCard() {
             <div className="absolute -bottom-20 -left-12 h-44 w-44 rounded-full bg-primary-500/15 blur-[70px]"></div>
             
             <div className="relative z-10 flex flex-col items-center text-center">
+                <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/90">
+                    <HiRocketLaunch className="h-3.5 w-3.5" />
+                    Build estable 1.2.4
+                </span>
+
                 <div className="mb-6 rounded-full border border-white/20 bg-white/10 p-4 transition-colors group-hover:bg-white/20">
                     <HiArrowDownTray className="h-10 w-10 text-white" />
                 </div>
@@ -23,6 +28,21 @@ export default function InstallerCard() {
                 <p className="mb-8 max-w-[280px] text-sm text-white/80">
                     Descarga la version estable para Windows y entra al entorno virtual con una instalacion segura.
                 </p>
+
+                <div className="mb-6 w-full space-y-2 rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left">
+                    <div className="flex items-center gap-2 text-xs text-white/80">
+                        <HiShieldCheck className="h-4 w-4 text-cyan-300" />
+                        Instalacion guiada en menos de 5 minutos
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white/80">
+                        <HiShieldCheck className="h-4 w-4 text-cyan-300" />
+                        Validacion de integridad al iniciar
+                    </div>
+                    <div className="flex items-center gap-2 text-xs text-white/80">
+                        <HiShieldCheck className="h-4 w-4 text-cyan-300" />
+                        Compatible con sesiones colaborativas
+                    </div>
+                </div>
 
                 <div className="space-y-4 w-full">
                     <button className="group/btn relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-2xl border border-white/35 bg-white/10 px-6 py-4 font-bold text-white transition-all hover:bg-white/20 active:scale-95">

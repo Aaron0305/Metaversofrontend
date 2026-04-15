@@ -34,8 +34,11 @@ export default function InfoCard({ title, description, icon, color, index, class
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ y: -4, scale: 1.01 }}
-            className={`${className} group cursor-default rounded-3xl border bg-gradient-to-br p-6 backdrop-blur-md transition-all duration-300 ${panelColor}`}
+            className={`${className} group relative cursor-default overflow-hidden rounded-3xl border bg-gradient-to-br p-6 backdrop-blur-md transition-all duration-300 ${panelColor}`}
         >
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/65 to-transparent"></div>
+            <div className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-white/5 blur-2xl"></div>
+
             <div className={`mb-4 w-fit rounded-2xl p-3 transition-transform duration-300 group-hover:scale-110 ${badgeColor}`}>
                 {icon}
             </div>
